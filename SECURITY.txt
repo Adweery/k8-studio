@@ -1,0 +1,25 @@
+K8 Studio v0.1.1
+
+Security changes
+- The app's Win32 P/Invokes are restricted to Windows System32 via DefaultDllImportSearchPaths. An inert DLL substitution regression test confirms hid.dll is loaded from Windows System32 even when a fake hid.dll is beside the executable.
+- Settings XML prohibits DTDs and disables external entity resolution.
+- Settings input is limited to 256 KiB and 128 Ki document characters; profile count, names and lighting values are validated.
+
+Application behavior
+- Runs with the current user's permissions; does not request elevation.
+- No network, telemetry, keylogging, firmware flashing or automatic updating.
+- Only the documented matching original K8 USB interface is accepted.
+- Optional current-user startup is controlled in Settings; the executable path is quoted.
+- Profiles and diagnostic logs stay in the user's local application data folder. Review logs for personal paths before sharing them.
+
+Distribution
+- Obtain the ZIP from https://github.com/Adweery/k8-studio/releases/latest and compare its SHA-256 with the attached checksum file.
+- The executable is unsigned. Checksums identify the exact published artifact; they are not a substitute for code signing or a security guarantee.
+- Complete source and GPL-2.0-or-later license are included.
+- This is a focused source and package review with regression checks, not an independent penetration test or a certification for every K8 firmware.
+- System32 restrictions cover this application's own native imports, not every internal load performed by Windows or the .NET runtime.
+
+Git privacy
+The public repository was recreated with GitHub noreply commit identities to avoid exposing a private commit email. The old repository is retained privately by its owner. Copies obtained before the cleanup cannot be recalled.
+
+To report a security issue, use GitHub's private vulnerability reporting where available. Do not post credentials or private diagnostic data in public Issues.
